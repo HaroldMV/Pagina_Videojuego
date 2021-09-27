@@ -93,6 +93,7 @@ namespace Pagina_Videojuego.Controllers
 
         List<Usuario> ListUsuarioxNombre(string nombre)
         {
+            /* UsuarioVictor*/
             List<Usuario> aUsuario = new List<Usuario>();
             SqlCommand cmd = new SqlCommand("SP_LISTAUSUARIOXNOMBRE", cn);
             cmd.Parameters.AddWithValue("@NOM", nombre);
