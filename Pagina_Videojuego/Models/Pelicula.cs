@@ -34,5 +34,7 @@ namespace Pagina_Videojuego.Models
 
         [DisplayName("FOTO")]
         public string foto { get; set; }
+
+//sida
     }
 }
