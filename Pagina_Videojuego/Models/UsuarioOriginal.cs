@@ -14,11 +14,11 @@ namespace Pagina_Videojuego.Models
         public string idUsuario { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre de Usuario")]
-        [DisplayName("Nombre de Usuario")]
+        [DisplayName("Nombres Completos")]
         public string nombres { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese nombre del usuario")]
-        [DisplayName("Nombre del usuario")]
+        [DisplayName("Usuario")]
         public string nombreUsu { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese ")]
