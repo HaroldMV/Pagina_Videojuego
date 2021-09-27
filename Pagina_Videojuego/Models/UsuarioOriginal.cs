@@ -13,7 +13,8 @@ namespace Pagina_Videojuego.Models
         [DisplayName("Codigo de Usuario")]
         public string idUsuario { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre de Usuario")]
+        
+        [Required, MinLength(3, ErrorMessage ="El nombre debe tener minimo 3 carateres"), MaxLength(60)]
         [DisplayName("Nombres Completos")]
         public string nombres { get; set; }
 
@@ -21,7 +22,7 @@ namespace Pagina_Videojuego.Models
         [DisplayName("Usuario")]
         public string nombreUsu { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese ")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese contraseña")]
         [DisplayName("Contraseña ")]
         public string password { get; set; }
 

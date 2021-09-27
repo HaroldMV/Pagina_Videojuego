@@ -126,7 +126,7 @@ namespace Pagina_Videojuego.Controllers
         {
             if (!string.IsNullOrEmpty(idUsu) && !string.IsNullOrEmpty(password))
             {
-                SqlCommand cmd = new SqlCommand("SP_INGRESOUSUARIOO", cn);
+                SqlCommand cmd = new SqlCommand("SP_INGRESOUSUARIO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IDUSU", idUsu);
                 cmd.Parameters.AddWithValue("@PASS", password);
