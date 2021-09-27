@@ -248,6 +248,7 @@ namespace Pagina_Videojuego.Controllers
         [HttpPost]
         public ActionResult registrarUsuario(UsuarioOriginal obju)
         {
+            //pene
             List<SqlParameter> parametros = new List<SqlParameter>() {
                 new SqlParameter(){ParameterName="@ID_USU",SqlDbType=SqlDbType.Char, Value=obju.idUsuario},
                 new SqlParameter(){ParameterName="@NOMBRES",SqlDbType=SqlDbType.VarChar, Value=obju.nombres},
