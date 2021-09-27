@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Videojuego>
+
+@{
+    ViewBag.Title = "listaVideojuegoPag";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Administrar Videojuegos</h2>
+
+<p>
+    <button class="btn btn-default">@Html.ActionLink("Registrar Videojuego", "nuevoVideojuego")</button>
+</p>
+
+
+@foreach (var item in Model)
+{
+    <div id="bloqueLista">
+        <br />
+        <div id="portadaLista">
+            <img class="portadaLista" src="@Url.Content(item.portada)" alt="Alternate Text" />
+        </div>
+        <br />
+        <div id="datosLista">
+
+            <p>     Codigo: @Html.DisplayFor(modelItem => item.idVid)</p>
+
+            <p>    Nombre: @Html.DisplayFor(modelItem => item.nomVide)</p>
+
+            <p>    Plataformas: @Html.DisplayFor(modelItem => item.platafor)</p>
+
+            <p>    Desarrolladora: @Html.DisplayFor(modelItem => item.desarro)</p>
+
+            <p>    Fecha de Lanzamiento: @Html.DisplayFor(modelItem => item.fechlan)</p>
+
+            <p>    Precio: @Html.DisplayFor(modelItem => item.precio)</p>
+
+            <p>    Stock: @Html.DisplayFor(modelItem => item.stock)</p>
+
+            <p>    Genero: @Html.DisplayFor(modelItem => item.genero)</p>
+            <br />
+        </div>
+        <div id="CRUSLista">
+            <button class="botonLista">@Html.ActionLink("Actualizar", "EditarVideojuego", new { id = item.idVid })</button>
+            <button class="botonLista">@Html.ActionLink("Eliminar", "", new { id = item.idVid })</button>
+            <button class="botonLista">@Html.ActionLink("Detalle", "detalleVideojuego", new { id = item.idVid })</button>
+            
+
+        </div>
+        <br /><br />
+    </div>
+}
+<div id="paginadoListado">
+    <h6>
+        @for (int i = 0; i < ViewBag.pag; i++)
+        {
+            @Html.ActionLink((i + 1).ToString(), "ListaVideojuegoPAG", new { v = i }, new { @class = "btn btn-default" })
+        }
+    </h6>
+</div>
+

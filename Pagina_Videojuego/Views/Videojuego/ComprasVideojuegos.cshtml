@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Videojuego>
+
+@{
+    ViewBag.Title = "ComprasVideojuegos";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>CARRITO DE COMPRAS</h2>
+
+<p>
+    @Html.ActionLink("REALIZAR COMPRA", "Comprar", null, new { @class = "btn btn-primary" })
+</p>
+
+@Html.Partial("_PartialVideojuego")

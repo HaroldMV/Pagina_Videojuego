@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Videojuego>
+
+@{
+    ViewBag.Title = "listadoVideojuego";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>LISTADO DE VIDEOJUEGOS</h2>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idVid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomVide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.platafor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.desarro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.portada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.genero)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idVid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomVide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.platafor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stock)
+            </td>
+            <td>
+                <img src="@Url.Content(item.portada)" width="50" height="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genero)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "editarVideojuego", new { id = item.idVid },
+                                                            new { @class = "glyphicon glyphicon-pencil" })
+                @Html.ActionLink(" ", "detalleVideojuego", new { id = item.idVid },
+                                                    new { @class = "glyphicon glyphicon-plus-sign" })
+                @Html.ActionLink(" ", "eliminarPelicula", new { id = item.idVid },
+                                                        new { @class = "glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>

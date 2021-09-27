@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.ItemJuego>
+
+@{
+    ViewBag.Title = "comprar";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<br />
+<br />
+
+<section class="panel-primary">
+    <section class="panel-heading">
+        PROCESO DE COMPRA DE VIDEOJUEGOS
+    </section>
+    <section class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.idVid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nomVide)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.subtotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.portada)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idVid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nomVide)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.subtotal)
+    </td>
+    <td>
+        <img id="imgProPeq" src="@Url.Content(item.portada)" />
+    </td>
+    <td>
+        @Html.ActionLink("Eliminar", "eliminaVideojuego",
+                         new { id = item.idVid }, new { @class = "form-control" })
+    </td>
+</tr>            }
+
+        </table>
+        @Html.ActionLink("SEGUIR COMPRANDO", "ComprasVideojuegos", "", new { @class = "btn btn-primary" })
+    </section>
+</section>
+
+<section>
+    @Html.Label("TOTAL A PAGAR S/") @(((decimal)@ViewBag.total).ToString("0.00"))
+</section>

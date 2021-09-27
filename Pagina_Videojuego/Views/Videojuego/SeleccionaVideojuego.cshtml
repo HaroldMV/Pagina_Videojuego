@@ -1,0 +1,27 @@
+﻿@model Pagina_Videojuego.Models.Videojuego
+
+@{
+    ViewBag.Title = "SeleccionaVideojuego";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<section id="columna1">
+    @Html.Partial("_PartialRegistro")
+</section>
+
+<section id="columna2">
+    @using (Html.BeginForm("agregarVideojuego", "Videojuego"))
+    {
+        <section class="panel panel-primary">
+            <section class="panel-heading">
+                PROCESO DE SELECCION
+            </section>
+            <section class="panel-body">
+                @Html.Hidden("id", Model.idVid)
+                @Html.TextBox("cant", "", new { @class = "form-control" })
+                <input class="btn btn-primary" type="submit" value="ACEPTAR" />
+                @Html.ActionLink("CANCELAR", "ComprasVideojuegos", "", new { @class = "btn btn-danger" })
+            </section>
+            </section>
+    }
+</section>

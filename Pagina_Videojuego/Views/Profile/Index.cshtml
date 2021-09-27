@@ -1,0 +1,220 @@
+﻿@model Pagina_Videojuego.Models.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2 style="text-align:center">Bienvenido(a) @ViewBag.nombre</h2>
+<br />
+<section id="cuerpo">
+
+    <div id="juegos-izquierda">
+
+        <h2 class="titulo-juegos">Ultimos juegos agregados</h2>
+
+        <img class="cara-img" src="~/Images/games/450_1000.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/51476a53-97d4-4b4b-b38f-15b9b2217404.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/Battlefield-V-PC.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/call-of-duty-black-ops-xbox-360_49564.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/450_1000.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/Battlefield-V-PC.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/max-payne-3-playstation-3-xbox-360_117202.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/games/call-of-duty-black-ops-xbox-360_49564.jpg" alt="Caratula" />
+
+    </div>
+
+    <div id="formulario-derecha">
+
+        <h2 class="titulo-juegos">Perfil</h2>
+        <br />
+        <img style="float: left; width: 25%" src="~/Images/principal/OIP.jpg" alt="Alternate Text" />
+
+        <div style="float:right; width:74%;">
+
+
+
+            <dl style="font-size: 12px;">
+                <dt>
+                    @Html.DisplayNameFor(model => model.id_usua)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.id_usua)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nombres)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombres)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nombreUsu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombreUsu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.correo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.correo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.fechaNaci)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.fechaNaci)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.pais)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.pais)
+                </dd>
+
+            </dl>
+
+
+
+
+        </div>
+        <div class="">
+            <button>Ver Perfil</button>
+        </div>
+
+        <br /><br /><br />
+
+
+        <h2 class="titulo-juegos">Ultimas Noticia</h2>
+
+        <a href="https://www.3djuegos.com/juegos/articulos/2106/0/analisis-xbox-series-x-y-s-y-sus-primeros-juegos-como-es-la-next-gen-de-microsoft/">
+            <img alt="Noticia" src="https://i.3djuegos.com/juegos/3405/_articulos_/fotos/articulos/_articulos_-5292170.jpg" style="width:100%; border:thick; border-radius:10px;" />
+            <h4 style="text-align: center">Análisis Xbox Series X y S y sus primeros juegos</h4>
+        </a>
+
+        <a href="https://www.3djuegos.com/noticias-ver/209146/ps5-no-sera-compatible-con-almacenamiento-externo-ssd-en-su/">
+            <img alt="Noticia" src="https://i.3djuegos.com/juegos/15263/playstation_5/fotos/noticias/playstation_5-5294956.jpg" style="width:100%; border:thick; border-radius:10px;" />
+            <h4 style="text-align: center">PS5 no será compatible con almacenamiento externo SSD</h4>
+        </a>
+    </div>
+
+
+
+</section>
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<!--****** Carrusel******* -->
+<div id="carrusel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item imgCarrusel active">
+                <img src="~/Images/Carrusel/77756.jpg" alt="End Game" style="width: 100%;">
+            </div>
+
+            <div class="item imgCarrusel">
+                <img src="~/Images/Carrusel/john_wick_chapter_two_ver3_xlg.jpg" alt="Wick" style="width: 100%;">
+            </div>
+
+            <div class="item imgCarrusel">
+                <img src="~/Images/Carrusel/b5fa4640947c34712718c54ecda6f363.jpg" alt="Morales" style="width:100%;">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<section id="cuerpo">
+
+    <div id="juegos-izquierda">
+
+        <h2 class="titulo-juegos">Ultimas peliculas en estreno</h2>
+
+        <img class="cara-img" src="~/Images/movies/HP3149_83542499-5f51-4f2c-98bb-fbf7459bc0c5_1024x1024.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/OIP (1).jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/OIP (2).jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/OIP (3).jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/OIP.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/pulp-fiction-521961b7ea925.jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/OIP (1).jpg" alt="Caratula" />
+
+        <img class="cara-img" src="~/Images/movies/OIP (2).jpg" alt="Caratula" />
+
+    </div>
+
+    <div id="formulario-derecha">
+
+        <h2 class="titulo-juegos">Ofertas del Dia</h2>
+
+        <div id="carrusel">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item oferta active">
+                        <img src="~/Images/Carrusel/Off.jpg" alt="Oferta1" style="width: 100%; height: 594px">
+                    </div>
+
+                    <div class="item oferta">
+                        <img src="~/Images/Carrusel/Off2.jpg" alt="Oferta2" style="width: 100%; height: 594px">
+                    </div>
+
+                    <div class="item oferta">
+                        <img src="~/Images/Carrusel/Off3.jpg" alt="Oferta3" style="width: 100%; height: 594px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

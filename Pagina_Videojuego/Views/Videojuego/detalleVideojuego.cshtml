@@ -1,0 +1,93 @@
+﻿@model Pagina_Videojuego.Models.Videojuego
+
+@{
+    ViewBag.Title = "detalleVideojuego";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<section class="marcoDeta">
+    <h2>DETALLE DE VIDEOJUEGO</h2>
+    <br />
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idVid)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idVid)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nomVide)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nomVide)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.platafor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.platafor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.desarro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.desarro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechlan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechlan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.precio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.precio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.portada)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.portada)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.genero)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.genero)
+            </dd>
+
+        </dl>
+    </div>
+</section>
+<section class="marcoDeta">
+    <img src="@Url.Content(Model.portada)" width="400" />
+</section>

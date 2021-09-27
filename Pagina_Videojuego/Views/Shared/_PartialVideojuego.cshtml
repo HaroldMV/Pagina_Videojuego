@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Videojuego>
+@foreach (var elemento in Model)
+{
+<section class="bloque">
+    <div>
+        <img class="imgArt" src="@Url.Content(elemento.portada)" />
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="datosCompra">
+        <h4 class="dato">@elemento.nomVide</h4>
+        <p class="dato">Precio: S/.@elemento.precio.ToString("0.00")</p>
+        <p class="dato">Disponibles: @elemento.stock</p>
+    </div>
+    @Html.ActionLink("ADQUIRIR", "SeleccionaVideojuego", new { id = elemento.idVid },
+                          new { @class = "btn btn-default" })
+
+</section>}
+
