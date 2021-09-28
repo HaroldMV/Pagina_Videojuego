@@ -14,7 +14,9 @@ namespace Pagina_Videojuego.Models
         public string idPelicula { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre de Pelicula")]
+
         [DisplayName("Nombre de Pelicula")]
+        [StringLength(30, ErrorMessage ="maximo 30 letras")]
         public string nombre { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese nombre del Director")]
@@ -36,6 +38,7 @@ namespace Pagina_Videojuego.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Stock")]
         [DisplayName("Stock de Pelicula")]
         [Range(1, int.MaxValue, ErrorMessage ="Error de Rango")]
+        [RegularExpression("(^[0-9]{3}+$)", ErrorMessage = "Solo se permiten números")]
         public int stock { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Genero")]
