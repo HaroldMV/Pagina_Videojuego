@@ -203,10 +203,10 @@ namespace Pagina_Videojuego.Controllers
             Pelicula objP = ListPelicula().Where(p => p.idPelicula == id).FirstOrDefault();
             return View(objP);
         }
-
+        /*VR*/
         string CRUD(string proceso, List<SqlParameter> p)
         {
-            string mensaje = "No se registro";
+            string mensaje = "Película No Actualizado";
             cn.Open();
             try
             {
@@ -214,7 +214,7 @@ namespace Pagina_Videojuego.Controllers
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddRange(p.ToArray());
                 int n = cmd.ExecuteNonQuery();
-                mensaje = n + " Registro actualizado";
+                mensaje = n + "Película Actualizado";
             }
             catch (SqlException ex)
             {
@@ -224,7 +224,7 @@ namespace Pagina_Videojuego.Controllers
             {
                 cn.Close();
             }
-            return mensaje;
+            return mensaje; /*VR*/
         }
 
         public ActionResult registroPelicula()
@@ -247,6 +247,31 @@ namespace Pagina_Videojuego.Controllers
                 ViewBag.mensaje = "Debe ser un jpg";
                 return View(objP);
             }
+
+            /*VR*/
+            string CRUD(string proceso, List<SqlParameter> p)
+            {
+                string mensaje = "Registro Película Erroneo";
+                cn.Open();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(proceso, cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddRange(p.ToArray());
+                    int n = cmd.ExecuteNonQuery();
+                    mensaje = n + " Registro Película Exitoso";
+                }
+                catch (SqlException ex)
+                {
+                    mensaje = ex.Message; 
+                }
+                finally
+                {
+                    cn.Close();
+                }
+                return mensaje; /**/
+            }
+
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
                 new SqlParameter(){ParameterName="@IDPELI",SqlDbType=SqlDbType.Char, Value=objP.idPelicula},
