@@ -1,16 +1,25 @@
 ﻿body {
+    background: url(../Images/principal/fondouno.jpg);
+    font-family: verdana;
+    background-size: cover;
 }
+
 
 .lisProdu{
     width:48%;
     height: 380px;
     padding: 5px;
     display: inline-block;
-    border: 1px solid blue;
-    border-radius: 5px;
     margin-bottom: 10px;
     text-align: justify;
 }
+
+
+.imgArt:hover {
+    zoom: 105%;
+}
+
+
 
 .listIma {
     float: left;
@@ -40,7 +49,7 @@
 
 .bloque {
     width: 24%;
-    height: 450px;
+    height: 400px;
     float: left;
     margin: 5px;
     text-align: center;
@@ -51,10 +60,7 @@
     height: 300px;
     float: left;
     margin-left: 10px;
-    border-color: #1849AB;
-    border-radius: 5px;
-    border: 2px groove;
-    border-width: 3px;
+    
 }
 
 .imgPro {
@@ -62,7 +68,7 @@
     height: 370px;
     margin-left: -180px;
     padding: 1px;
-    border-radius: 10px;
+  
 }
 
 #registroIzq {
@@ -92,7 +98,7 @@
 #imgProPeq {
     width: 70px;
     height: 70px;
-    border-radius: 10px;
+    
 }
 
 .dato {

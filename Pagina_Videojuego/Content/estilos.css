@@ -7,46 +7,39 @@
 }
 
 body {
-    background: lightgrey;
+    background:url(../Images/principal/fondouno.jpg);
     font-family: verdana;
-    background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
-#banner {
-    height: 60px;
+#banner{
+    height: 63px;
     width: 100%;
     background: #1849AB;
-    border: groove;
-    border-radius: 10px;
-    border-color: #1849AB;
+   
 }
 
-.imgbanner {
-    border: thick;
-    border-radius: 10px;
-}
 
 #menuArriba {
-    background: #1849AB;
+    background: #05235a;
     overflow: hidden;
     width: 75%;
     height: 100%;
     float: right;
     text-align: center;
-    border: thick;
-    border-radius: 10px;
+
 }
 
-#carrusel {
-    border-radius: 1px;
-    border-color: #1849AB;
-    border-style: groove;
-}
+
 
 .imgCarrusel {
     height: 360px;
 }
+    .imgCarrusel:hover {
+        zoom: 102%;
+    }
+
 
 .oferta {
     height: 594px;
@@ -65,9 +58,7 @@ body {
     max-width: 1300px;
     padding: 0;
     background: white;
-    border: ridge;
-    border-radius: 10px;
-    border-color: cornflowerblue;
+  
 }
 
 #juegos-izquierda {
@@ -78,20 +69,29 @@ body {
 .titulo-juegos {
     background: #1849AB;
     height: 40px;
-    border-style: groove;
-    border-color: #1849AB;
-    border-radius: 10px;
     text-align: center;
     color: white;
 }
 
+    .titulo-juegos:hover {
+        zoom:105%;
+        background: #1b63b1;
+    }
+
+
+
+
 .cara-img {
     width: 24.3%;
-    border: groove;
-    border-color: #1849AB;
-    border-radius: 1px;
     height: 300px;
+   
 }
+    .cara-img:hover {
+        background: #3797ff;
+        zoom: 102%;
+        width: 25.3%;
+        height: 305px;
+    }
 
 #formulario-derecha {
     float: right;
@@ -183,8 +183,8 @@ body {
     }
 
         .menu li a:hover {
-            color: #FFFFFF;
-            background: #3971E1;
+            color: #ffff;
+            background: #17518f;
         }
 
 .submenu {
