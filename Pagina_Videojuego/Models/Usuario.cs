@@ -29,4 +29,6 @@ namespace Pagina_Videojuego.Models
         [DisplayName("PAIS")]
         public string pais{ get; set; }
     }
+
+    //Comentario
 }
