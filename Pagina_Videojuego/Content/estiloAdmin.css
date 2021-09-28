@@ -4,27 +4,31 @@
 }
 
 body {
-    background: url(../Images/principal/fondouno.jpg);
+    background: lightgrey;
     font-family: verdana;
+    background-repeat: no-repeat;
     background-size: cover;
-    
-
-
 }
 
 #menuAdmin {
-    background: #05235a;
+    background: #1849AB;
     width: 75%;
     height: 100%;
     float: right;
     text-align: center;
+    border: thick;
+    border-radius: 10px;
 }
-
 
 ul {
     list-style: none;
 }
 
+.nav ul {
+    border: groove;
+    border-radius: 10px;
+    border-color: #1849AB;
+}
 
 .nav li {
     color: #1849AB;
@@ -47,8 +51,11 @@ ul {
         background: #3971E1;
     }
 
-
-
+.nav li:hover {
+    background: #3971E1;
+    border-radius: 10px;
+    border-color: #1849AB;
+}
 
 .nav li ul {
     display: none;
@@ -91,7 +98,9 @@ ul {
 /*CRUD Videojuegos*/
 
 #bloqueLista {
-    
+    border-top: 1px dotted;
+    border-bottom: 1px dotted;
+    border-color: #1849AB;
 }
 
 #portadaLista {
@@ -112,8 +121,9 @@ ul {
 
 .portadaLista {
     width: 60%;
-    
-   
+    border: groove;
+    border-color: #1849AB;
+    border-radius: 1px;
     height: 340px;
 }
 
@@ -121,7 +131,7 @@ ul {
     text-align: center;
     width: 10%;
     font-size: 14px;
-   
+    border-radius: 5px;
 }
 
 #paginadoListado {
