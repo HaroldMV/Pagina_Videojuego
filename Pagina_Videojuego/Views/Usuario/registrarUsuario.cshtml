@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "registrarUsuario";
-    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 
 <h2>REGISTRAR USUARIO</h2>
@@ -13,7 +13,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="text-center">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
