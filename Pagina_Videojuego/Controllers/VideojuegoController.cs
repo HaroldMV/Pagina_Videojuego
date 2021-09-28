@@ -102,8 +102,7 @@ namespace Pagina_Videojuego.Controllers
         List<GeneroVideojuego> listGeneroVideojuego()
         {
             List<GeneroVideojuego> aGeneroVideo = new List<GeneroVideojuego>();
-            SqlCommand cmd = new SqlCommand("SP_LISTAGENERO", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("SP_LISTADO_GENERO_VIDEOJUEGO", cn);//tambien da con el SP_LISTAGENERO
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -294,54 +293,37 @@ namespace Pagina_Videojuego.Controllers
             ViewBag.genero = new SelectList(listGeneroVideojuego(), "idGenero", "nombre");
             return View(new VideojuegoOriginal());
         }
-
         [HttpPost]
-        public ActionResult registroVideojuego(VideojuegoOriginal objV, HttpPostedFile f)
+        public ActionResult registroVideojuego(VideojuegoOriginal objV, HttpPostedFileBase f)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(objV);
-            }
-            cn.Open();
-            ViewBag.mensaje = "";
-
             if (f == null)
             {
-                ViewBag.mensaje = "Seleccione una imagen";
+                ViewBag.mensaje = "Selecciona una foto";
                 return View(objV);
             }
-
             if (Path.GetExtension(f.FileName) != ".jpg")
             {
-                ViewBag.mensaje = "Debe ser .JPG";
+                ViewBag.mensaje = "Debe ser un jpg";
                 return View(objV);
             }
-            SqlTransaction tr = cn.BeginTransaction(IsolationLevel.Serializable);
-            try
+            List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                SqlCommand cmd = new SqlCommand("SP_MANTENIMIENTOVIDEOJUEGO", cn, tr);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IDVID", objV.idVid);
-                cmd.Parameters.AddWithValue("@NOMVID", objV.nomVide);
-                cmd.Parameters.AddWithValue("@PLAT", objV.platafor);
-                cmd.Parameters.AddWithValue("@DESA", objV.desarro);
-                cmd.Parameters.AddWithValue("@FECVID", objV.fechlan);
-                cmd.Parameters.AddWithValue("@PREVID", objV.precio);
-                cmd.Parameters.AddWithValue("@STOVID", objV.stock);
-                cmd.Parameters.AddWithValue("@PORTAVID", "~/Images/portada_juego/" + Path.GetFileName(f.FileName));
-                f.SaveAs(Path.Combine(Server.MapPath("~/Images/portada_juego/"), Path.GetFileName(f.FileName)));
-                cmd.Parameters.AddWithValue("@GENVID", objV.genero);
-                int n = cmd.ExecuteNonQuery();
-                tr.Commit();
-                ViewBag.mensaje = n.ToString() + "Videojuego Registrado Exitosamente";
-            }
-            catch (Exception ex)
-            {
-                ViewBag.mensaje = ex.Message;
-                tr.Rollback();
-            }
-            cn.Close();
-            ViewBag.pais = new SelectList(listGeneroVideojuego(), "codigo", "nombre", objV.genero);
+                new SqlParameter(){ParameterName="@IDVID",SqlDbType=SqlDbType.Char, Value=objV.idVid},
+                new SqlParameter(){ParameterName="@NOMVID",SqlDbType=SqlDbType.VarChar, Value=objV.nomVide},
+                new SqlParameter(){ParameterName="@PLAT",SqlDbType=SqlDbType.VarChar, Value=objV.platafor},
+                new SqlParameter(){ParameterName="@DESA",SqlDbType=SqlDbType.VarChar, Value=objV.desarro},
+                new SqlParameter(){ParameterName="@FECVID",SqlDbType=SqlDbType.VarChar, Value=objV.fechlan},
+                new SqlParameter(){ParameterName="@PREVID",SqlDbType=SqlDbType.SmallMoney, Value=objV.precio},
+                new SqlParameter(){ParameterName="@STOVID",SqlDbType=SqlDbType.Int, Value=objV.stock},
+                new SqlParameter(){ParameterName="@PORTA",SqlDbType=SqlDbType.VarChar,
+                    Value="~/Images/portada_juego/"+Path.GetFileName(f.FileName)},
+                new SqlParameter(){ParameterName="@GENVID",SqlDbType=SqlDbType.Char, Value=objV.genero}
+            };
+            ViewBag.mensaje = CRUD("SP_MANTENIMIENTOVIDEOJUEGO", parameters);
+            f.SaveAs(Path.Combine(Server.MapPath("~/Images/portada_juego/"),
+                Path.GetFileName(f.FileName)));
+
+            ViewBag.genero = new SelectList(listGeneroVideojuego(), "idGenero", "nombre", objV);
             return RedirectToAction("listadoVideojuego");
         }
 
